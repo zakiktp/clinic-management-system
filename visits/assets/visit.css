@@ -1,0 +1,307 @@
+body{
+    font-family: Arial;
+    background:#f4f6f9;
+}
+
+/* CARD */
+.card{
+    background:#fff;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:6px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* PATIENT */
+.patient-row{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    margin-bottom:5px;
+}
+
+.patient-name{
+    font-weight:bold;
+    font-size:16px;
+}
+
+.patient-address{
+    width:60%;
+}
+
+/* TABLES */
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#e6f2ff;
+    padding:6px;
+    font-size:13px;
+}
+
+td{
+    padding:6px;
+    border:1px solid #ddd;
+    text-align:center;
+}
+
+/* VITALS */
+.vitals-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.vitals-table th,
+.vitals-table td {
+    border: 1px solid #ddd;
+    padding: 6px;
+    text-align: center;
+}
+
+.vitals-table input {
+    width: 70px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+#vitalsMsg {
+    font-weight: bold;
+}
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;   /* ✅ scroll if needed */
+}
+
+#medTable {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;  /* ✅ prevents overflow */
+}
+
+#medTable th,
+#medTable td {
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
+}
+
+#medTable input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 4px;
+    font-size: 13px;
+}
+
+/* Column width control */
+#medTable th:nth-child(1),
+#medTable td:nth-child(1) {
+    width: 40px;
+}
+
+#medTable th:nth-child(2),
+#medTable td:nth-child(2) {
+    width: 90px;
+}
+
+#medTable th:nth-child(7),
+#medTable td:nth-child(7) {
+    width: 60px;
+}
+/* MED TABLE */
+.med-table input{
+    width:100%;
+}
+
+/* BUTTONS */
+.btn{
+    padding:6px 12px;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.btn-green{
+    background:#28a745;
+    color:#fff;
+}
+
+.btn-blue{
+    background:#007bff;
+    color:#fff;
+}
+
+.btn:hover{
+    opacity:0.9;
+}
+
+/* FORM */
+.form-group{
+    margin-bottom:10px;
+}
+
+label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:3px;
+}
+
+/* TOP BAR */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* TITLE */
+.page-title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* RIGHT SIDE BUTTONS */
+.top-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* BUTTONS */
+.btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-blue {
+    background: #007bff;
+    color: #fff;
+}
+
+.btn-gray {
+    background: #6c757d;
+    color: #fff;
+}
+
+/* HOVER EFFECT */
+.btn:hover {
+    opacity: 0.9;
+}
+/* TOP BAR LAYOUT */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* LEFT EMPTY SPACE (balances right buttons) */
+.left-space {
+    width: 150px; /* adjust based on button width */
+}
+
+/* CENTER TITLE */
+.page-title {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+}
+
+/* RIGHT BUTTONS */
+.top-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    width: 150px; /* same as left-space */
+}
+
+/* Tagify adjustments */
+.tagify {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+.tagify__input {
+    direction: ltr !important;
+    text-align: left !important;
+    unicode-bidi: plaintext !important;
+}
+
+/* 🔥 CRITICAL FIX */
+.tagify__input::before {
+    direction: ltr !important;
+}
+
+/* Dropdown */
+.tagify__dropdown {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+/* Vital Alerts Colouring adjustments */
+.alert-high {
+    background-color: #ffcccc;
+    color: #b30000;
+    font-weight: bold;
+}
+
+.alert-low {
+    background-color: #cce5ff;
+    color: #004085;
+    font-weight: bold;
+}
+
+.alert-normal {
+    background-color: #e6ffe6;
+    color: #006600;
+}
+#editpatientModal{
+    display:none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    background:#fff;
+    padding:20px;
+    border:1px solid #ccc;
+    z-index:9999;
+    width:400px;
+}
+
+#editpatientModalHeader{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+.table-responsive {
+    overflow-x: auto;
+}
+
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+}
+
+.action-buttons .btn {
+    white-space: nowrap;
+    font-size: 12px;
+    padding: 2px 6px;
+}
+.prescription-table, .followup-billing {
+    width: 100%;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+.container { overflow-x: auto; }

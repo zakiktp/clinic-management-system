@@ -1,0 +1,195 @@
+3. Database Design (VERY IMPORTANT)
+🟢 1. items (MASTER)
+items
+------
+id (PK)
+item_name
+type (Tablet/Syrup/etc)
+description
+group_name
+company_id
+rack
+unit
+alt_unit
+adult_dosage
+paediatric_dosage
+infant_dosage
+hsn
+gst
+status
+🟢 2. companies
+id
+company_name
+🟢 3. suppliers
+id
+name
+phone
+address
+gst_no
+🟢 4. item_batches (🔥 CORE TABLE)
+id
+item_id
+supplier_id
+batch_no
+mfg_date
+expiry_date
+mrp
+purchase_price
+quantity
+
+👉 This is heart of pharmacy system
+
+🟢 5. purchases
+id
+supplier_id
+invoice_no
+date
+total_amount
+🟢 6. purchase_items
+id
+purchase_id
+item_id
+batch_id
+qty
+price
+🟢 7. sales
+id
+customer_name
+date
+total_amount
+payment_mode
+🟢 8. sale_items
+id
+sale_id
+item_id
+batch_id
+qty
+mrp
+discount
+🔥 4. Key Features (What you asked)
+✅ Item Master (fixed values)
+
+✔ Item Name
+✔ Type
+✔ Group
+✔ Company
+✔ Rack
+✔ Unit
+✔ Dosage
+✔ HSN + GST
+
+👉 💡 Tip: Use dropdowns (no free text)
+
+✅ Inventory (Batch Wise)
+
+✔ Batch No
+✔ Expiry
+✔ MRP
+✔ Purchase Price
+✔ Quantity
+
+👉 Always deduct stock batch-wise (FIFO)
+
+✅ Stock Summary
+SELECT item_id, SUM(quantity) FROM item_batches GROUP BY item_id;
+✅ Expiry Alerts (VERY IMPORTANT)
+SELECT * FROM item_batches 
+WHERE expiry_date <= DATE_ADD(CURDATE(), INTERVAL 3 MONTH);
+
+👉 Make alerts for:
+
+1 month
+3 month
+6 month
+✅ Reorder Alert
+SELECT item_id, SUM(quantity) as stock 
+FROM item_batches
+GROUP BY item_id
+HAVING stock < 10;
+✅ Purchase Invoice
+
+✔ Add stock
+✔ Create batches
+✔ Link supplier
+
+✅ Sale Invoice
+
+✔ Select item
+✔ Auto-select batch (nearest expiry)
+✔ Deduct stock
+
+✅ Creditors / Debtors
+Creditors (Suppliers)
+purchases - payments
+Debtors (Customers)
+sales - payments
+✅ Cash / Bank
+
+Create:
+
+transactions
+------------
+id
+type (credit/debit)
+amount
+mode (cash/bank)
+date
+reference
+💡 5. Smart Features (Make your system powerful)
+🔥 1. Auto Batch Selection
+Sell nearest expiry first
+🔥 2. Barcode Support
+Huge speed boost
+🔥 3. Prescription Link (BEST for you)
+Directly push clinic prescription → pharmacy
+🔥 4. Low Stock Dashboard
+Show top 10 critical items
+🔥 5. Profit Tracking
+Sale price - purchase price
+⚠️ 6. Common Mistakes (Avoid these)
+
+❌ Not using batch table
+❌ Mixing stock in items table
+❌ No expiry tracking
+❌ Manual stock updates
+❌ No audit trail
+
+🚀 7. Recommended Build Plan (Step-by-step)
+Phase 1 (Must Have)
+
+✔ Item Master
+✔ Supplier Master
+✔ Purchase Entry
+✔ Stock Summary
+
+Phase 2
+
+✔ Sale Billing
+✔ Batch deduction
+✔ Expiry alerts
+
+Phase 3
+
+✔ Reports
+✔ Ledger
+✔ Dashboard
+
+🎯 Final Advice
+
+👉 Your idea is VERY strong
+👉 You are already ahead (clinic + appointments)
+
+If you build this:
+
+✔ You get full control
+✔ No dependency on billbook software
+✔ Can scale to full Hospital + Pharmacy ERP
+
+👉 Next Step
+
+If you want, I can:
+
+✔ Design complete database SQL (ready to import)
+✔ Create item master form (UI + PHP)
+✔ Build purchase + sale modules step-by-step
+✔ Integrate with your current system
