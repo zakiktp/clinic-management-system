@@ -57,4 +57,8 @@
 
 ---
 
+### Documentation / Deployment
+
+* Added database/schema.sql export for database structure
+
 Initial stable release prepared for deployment.
